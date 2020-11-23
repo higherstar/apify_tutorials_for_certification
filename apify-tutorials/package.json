@@ -1,0 +1,18 @@
+{
+	"name": "apify-tutorials",
+	"version": "0.0.1",
+	"description": "This is an example of an Apify actor.",
+	"dependencies": {
+		"apify": "^0.21.9",
+		"express": "^4.17.1",
+		"puppeteer": "^5.5.0"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"_comment": "// Please change the filename for start diffrent action and crowlers",
+		"start": "node src/actor-counter-main.js",
+		"test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1"
+	},
+	"author": "It's not you it's me",
+	"license": "ISC"
+}
