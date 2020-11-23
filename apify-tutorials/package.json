@@ -11,7 +11,7 @@
 	"devDependencies": {},
 	"scripts": {
 		"_comment": "// Please change the filename for start diffrent action and crowlers",
-		"start": "node src/createDataset.js",
+		"start": "node src/main.js",
 		"test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1"
 	},
 	"author": "It's not you it's me",

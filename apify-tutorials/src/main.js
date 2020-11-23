@@ -1,34 +1,18 @@
-const ApifyClient = require('apify-client');
+const Apify = require('apify');
 
-const apifyClient = new ApifyClient({
- userId: 'z8iDmwXsHwA8Nm9A3',
- token: 'SukXDJtqA2MAAwjaQnttmfp3Y',
-});
+Apify.main(async () => {
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: ['GOOGLE_SERP'],
+    });
+  const browser = await Apify.launchPuppeteer();
+    
+    const proxyUrl = proxyConfiguration.newUrl();
+    const query = encodeURI('Apple iPhone XS 64GB');
 
-// ed promise
-try {
-     const actors =  apifyClient.acts.listActs({});
-     console.log(actors)
-     // Do something actors list ...
-} catch (err) {
-    console.log(err)
-     // Do something with error ...
-}
+    const { body } = await Apify.utils.requestAsBrowser({
+        url: `http://www.google.co.uk/search?tbm=shop&q=${query}`,
+        proxyUrl,
+    });
 
-// Promise
-apifyClient.acts.listActs({})
-.then((actsList) => {
-    console.log(actsList)
-     // Do something actsList ...
-})
-.catch((err) => {
-    console.log(err)
-     // Do something with error ...
-});
-
-// Callback
-apifyClient.acts.listActs({}, (err, actsList) => {
-    console.log(err);
-    console.log(actsList);
-     // Do something with error or actsList ...
+    console.log(body);
 });
